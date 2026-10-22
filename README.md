@@ -197,7 +197,7 @@ Those numbers require a person in front of the camera. They are a target, not a 
 47 passed, 1 skipped in a fresh clone without the model
 ```
 
-The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. The full suite covers:
+The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. A clean Python 3.11 virtual environment created from `requirements.txt` and `requirements-dev.txt` also installed successfully and ran the same 47-passed / 1-skipped suite. The full suite covers:
 
 - feature extraction and scale invariance;
 - the majority smoother, cooldown and controller mapping;

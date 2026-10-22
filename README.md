@@ -308,7 +308,7 @@ python scripts/screenshot.py
 - [x] 5. Majority voting, 600 ms cooldown and neutral-zone re-arming.
 - [x] 6. Stable labels connected to gallery events.
 - [ ] 7. Run 20 attempts per action across distances and lighting; log counts without video.
-- [x] 8. Screenshot, webcam permissions, keyboard fallback and limitations documented.
+- [x] 8. Screenshot and webcam permissions, keyboard fallback and limitations documented. A GIF was intentionally omitted; the preview uses a still, licensed frame with no face.
 
 ## License
 

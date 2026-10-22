@@ -1,0 +1,1 @@
+attempt_id,timestamp,gesture,expected_event,detected_event,correct,latency_ms,fps,false_activation,lighting,distance_cm,camera,notes

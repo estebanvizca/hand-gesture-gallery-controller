@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# MediaPipe model files are downloaded separately, not committed
+models/*
+!models/.gitkeep
+!models/README.md
+*.task
+
+# Local benchmark output
+reports/
+*.log

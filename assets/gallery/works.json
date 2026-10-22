@@ -1,0 +1,66 @@
+[
+  {
+    "file": "01-tidal-register.jpg",
+    "title": "Tidal Register",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "A study of horizontal time: layered bands of sea, sand and signal. The single orange rule is the moment the tide turns.",
+    "accent": "#7FA6A0"
+  },
+  {
+    "file": "02-solar-interval.jpg",
+    "title": "Solar Interval",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "Warm geometry for a room at noon. Two rectangles overlap like shadows that have agreed to keep each other company.",
+    "accent": "#E4572E"
+  },
+  {
+    "file": "03-quiet-signal.jpg",
+    "title": "Quiet Signal",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "A field of faint vertical carriers, interrupted by one clear transmission. Made to be read from across a quiet room.",
+    "accent": "#BFD8C5"
+  },
+  {
+    "file": "04-after-rain.jpg",
+    "title": "After Rain",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "Soft bodies in suspension after the weather has passed. The horizon is low enough to leave room for the sky.",
+    "accent": "#6F8F72"
+  },
+  {
+    "file": "05-red-shift.jpg",
+    "title": "Red Shift",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "Ten diagonal intervals of vermilion moving away from the viewer. A strict grid holds the drift in place.",
+    "accent": "#D64B2A"
+  },
+  {
+    "file": "06-paper-moon.jpg",
+    "title": "Paper Moon",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "A pale circle drawn on warm paper, with two arcs that never quite meet. The blue rectangle is a door left ajar.",
+    "accent": "#284C63"
+  },
+  {
+    "file": "07-night-garden.jpg",
+    "title": "Night Garden",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "Leaves remembered rather than observed. A small moon keeps watch over a garden that exists only after dark.",
+    "accent": "#C08B6E"
+  },
+  {
+    "file": "08-low-horizon.jpg",
+    "title": "Low Horizon",
+    "year": "2026",
+    "medium": "Digital pigment print",
+    "description": "Ochre air, a dark ground and one circle holding the middle. An exercise in how little a landscape needs.",
+    "accent": "#D8B47C"
+  }
+]

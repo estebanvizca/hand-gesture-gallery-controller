@@ -1,0 +1,17 @@
+# Gallery artworks
+
+The eight works in this directory are original, code-generated abstract prints
+created for this demo by Esteban Vizcaino in 2026. They are not photographs and
+do not depict people.
+
+They are released under the **Creative Commons Attribution 4.0 International**
+license (CC BY 4.0): <https://creativecommons.org/licenses/by/4.0/>.
+
+You may share and adapt them, including commercially, as long as you give
+appropriate credit. Suggested attribution:
+
+> "Field Notes" series, Esteban Vizcaino, 2026, CC BY 4.0.
+
+The generator is included at `scripts/generate_gallery.py`, so the works can be
+reproduced from source. The metadata in `works.json` is part of the same
+release.

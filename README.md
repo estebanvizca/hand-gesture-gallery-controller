@@ -190,6 +190,15 @@ The project goal is:
 
 Those numbers require a person in front of the camera. They are a target, not a result. To make a claim, run the command above and report the generated summary. Do not copy numbers from a different session.
 
+| Metric | Target | Result in this repository |
+|---|---|---|
+| Correct actions per gesture (20 attempts) | ≥ 17 / 20 | Not measured — live session pending |
+| False activations during 5 idle minutes | ≤ 2 | Not measured — live session pending |
+| Median event latency | — | Not measured — live session pending |
+| FPS in a full session | — | Not measured — live session pending |
+
+The only measured results committed here are the automated tests and manual smoke checks below. The screenshot is a UI preview, not a benchmark result.
+
 ### Validation that is included
 
 ```

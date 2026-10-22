@@ -262,6 +262,9 @@ class GestureEngine:
             min_confidence=self.thresholds.min_confidence,
             cooldown_ms=self.thresholds.cooldown_ms,
         )
+        self.swipe = SwipeDetector(self.thresholds.swipe_min_palm_widths)
+        self.pinch = PinchDetector(self.thresholds.pinch_enter, self.thresholds.pinch_exit)
+        self.fist = FistDetector(self.thresholds.min_confidence)
         self.reset()
 
     def reset(self) -> None:

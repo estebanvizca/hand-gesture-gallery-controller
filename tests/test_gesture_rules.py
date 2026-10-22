@@ -126,6 +126,17 @@ def test_sensitivity_changes_pinch_threshold() -> None:
     assert "pinch" not in strict_events
 
 
+def test_set_sensitivity_rebuilds_the_detectors() -> None:
+    engine = GestureEngine(Thresholds.from_sensitivity(0.5))
+    engine.set_sensitivity(2.0)
+
+    assert engine.thresholds.sensitivity == 2.0
+    assert engine.swipe.min_palm_widths == 0.25
+    assert engine.pinch.enter == 0.5
+    assert engine.pinch.exit == 0.8
+    assert engine.armed is False
+
+
 def test_low_confidence_does_not_emit_or_report_hand() -> None:
     engine = GestureEngine(Thresholds.from_sensitivity(1.0, min_confidence=0.8))
     update = engine.update(make_hand("fist"), 0.0, 0.2)

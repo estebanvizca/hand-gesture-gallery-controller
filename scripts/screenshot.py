@@ -78,7 +78,7 @@ def main() -> int:
             frame=rgb,
             landmarks=landmarks,
             update=update,
-            fps=24.7,
+            fps=0.0,
             camera_size=(frame.shape[1], frame.shape[0]),
             camera_error=None,
             tracker_error=None,

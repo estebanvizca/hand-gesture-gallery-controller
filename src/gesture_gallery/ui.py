@@ -389,7 +389,7 @@ class GalleryUI:
             video = self._frame_surface(frame, video_rect.size)
             self.screen.blit(video, video_rect)
             if landmarks is not None and self.show_landmarks:
-                self._draw_landmarks(landmarks, video_rect)
+                self._draw_landmarks(landmarks, video_rect, (frame.shape[1], frame.shape[0]))
         else:
             self._draw_camera_placeholder(video_rect, camera_error, tracker_error)
 
@@ -437,7 +437,7 @@ class GalleryUI:
         status_color = ACCENT if status == "TRACKER OFFLINE" else SAGE if update.hand_present else MUTED
         self._text(status, self._fonts["mono_11"], status_color, (924, 524))
 
-        self._text(f"FPS {fps:4.1f}", self._fonts["mono_11"], MUTED, (924, 544))
+        self._text(f"FPS {fps:4.1f}" if fps > 0 else "FPS   --", self._fonts["mono_11"], MUTED, (924, 544))
         self._text(f"COOLDOWN {update.cooldown_remaining_ms / 1000:.1f}s", self._fonts["mono_11"], MUTED, (1058, 544))
         self._text(f"SENS {self.settings.sensitivity:.1f}", self._fonts["mono_11"], FAINT, (924, 562))
 
@@ -457,10 +457,26 @@ class GalleryUI:
         surface = pygame.image.frombuffer(frame.tobytes(), (width, height), "RGB").copy()
         return _cover(surface, size[0], size[1])
 
-    def _draw_landmarks(self, landmarks: HandLandmarks, rect: pygame.Rect) -> None:
+    def _draw_landmarks(
+        self,
+        landmarks: HandLandmarks,
+        rect: pygame.Rect,
+        frame_size: tuple[int, int],
+    ) -> None:
+        frame_width, frame_height = frame_size
+        if frame_width <= 0 or frame_height <= 0:
+            return
+        # The preview uses cover-fit cropping; apply the same transform to the
+        # normalized landmarks so the skeleton stays on the hand.
+        scale = max(rect.width / frame_width, rect.height / frame_height)
+        offset_x = (frame_width * scale - rect.width) / 2
+        offset_y = (frame_height * scale - rect.height) / 2
         overlay = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
         points = [
-            (int(point[0] * rect.width), int(point[1] * rect.height))
+            (
+                int(point[0] * frame_width * scale - offset_x),
+                int(point[1] * frame_height * scale - offset_y),
+            )
             for point in landmarks.points
         ]
         for start, end in HAND_CONNECTIONS:

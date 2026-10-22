@@ -4,7 +4,7 @@
 
 ![Field Notes gallery UI with a camera monitor and hand landmarks](docs/screenshot.png)
 
-*UI preview using a still, licensed test frame and real MediaPipe landmarks. The normal app uses the live webcam; nothing is recorded. See [docs/ATTRIBUTION.md](docs/ATTRIBUTION.md).*
+*UI preview using a still, licensed test frame and real MediaPipe landmarks. The FPS readout is blank because the screenshot renders a single still frame; the normal app uses the live webcam and shows measured FPS. Nothing is recorded. See [docs/ATTRIBUTION.md](docs/ATTRIBUTION.md).*
 
 **Status:** ✅ MVP implemented and tested — the guided live benchmark is included, but a full human session has not been run in this repository. No accuracy numbers are invented below.
 
@@ -202,11 +202,11 @@ The only measured results committed here are the automated tests and manual smok
 ### Validation that is included
 
 ```
-49 automated tests pass locally with the model present
-48 passed, 1 skipped in a fresh clone without the model
+50 automated tests pass locally with the model present
+49 passed, 1 skipped in a fresh clone without the model
 ```
 
-The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. A clean Python 3.11 virtual environment created from `requirements.txt` and `requirements-dev.txt` also installed successfully and ran the same 48-passed / 1-skipped suite. The full suite covers:
+The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. A clean Python 3.11 virtual environment created from `requirements.txt` and `requirements-dev.txt` also installed successfully and ran the same 49-passed / 1-skipped suite. The full suite covers:
 
 - feature extraction and scale invariance;
 - the majority smoother, cooldown and controller mapping;

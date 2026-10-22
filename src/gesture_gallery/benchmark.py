@@ -200,7 +200,13 @@ class BenchmarkUI:
             self.screen.blit(scaled, video, (left, top, video.width, video.height))
             if landmarks is not None:
                 overlay = pygame.Surface((video.width, video.height), pygame.SRCALPHA)
-                points = [(int(p[0] * video.width), int(p[1] * video.height)) for p in landmarks.points]
+                points = [
+                    (
+                        int(p[0] * width * scale - left),
+                        int(p[1] * height * scale - top),
+                    )
+                    for p in landmarks.points
+                ]
                 from gesture_gallery.ui import HAND_CONNECTIONS
 
                 for start, end in HAND_CONNECTIONS:

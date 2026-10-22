@@ -25,7 +25,7 @@ It builds on an earlier personal experiment with hand tracking, rewritten as a r
 - Real-time hand tracking with **MediaPipe Hand Landmarker** and **OpenCV**.
 - A Pygame gallery kiosk with transitions, a live camera monitor, landmark overlay, confidence, FPS and cooldown feedback.
 - A pure feature layer: palm center, palm width, pinch ratio and finger extension.
-- Temporal rules: 6-of-8 frame confirmation for swipes and pinches, a five-frame majority smoother, a neutral zone and a 600 ms cooldown.
+- Temporal rules: 6-of-8 frame confirmation for swipes and pinches, a five-frame majority smoother for the fist path, a neutral zone and a 600 ms cooldown.
 - A guided benchmark that records **counts only** — no frames, video or images.
 - Keyboard fallback that remains available when the camera or model is missing.
 
@@ -217,7 +217,7 @@ The model smoke test skips itself when `models/hand_landmarker.task` is absent, 
 - a blank-frame Hand Landmarker load test when the model is present;
 - a headless Pygame render smoke test.
 
-The camera and model were manually smoke-tested on this machine: a 640×480 / 800×600 webcam opened; MediaPipe initialized on CPU; a still open-hand frame produced 21 landmarks and was classified as `open` with four extended fingers and no pinch.
+The camera and model were manually smoke-tested on this machine: an 800×600 webcam stream opened; MediaPipe initialized on CPU; a still open-hand frame produced 21 landmarks and was classified as `open` with four extended fingers and no pinch.
 
 ## Design notes
 

@@ -202,18 +202,18 @@ The only measured results committed here are the automated tests and manual smok
 ### Validation that is included
 
 ```
-48 automated tests pass locally with the model present
-47 passed, 1 skipped in a fresh clone without the model
+49 automated tests pass locally with the model present
+48 passed, 1 skipped in a fresh clone without the model
 ```
 
-The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. A clean Python 3.11 virtual environment created from `requirements.txt` and `requirements-dev.txt` also installed successfully and ran the same 47-passed / 1-skipped suite. The full suite covers:
+The model smoke test skips itself when `models/hand_landmarker.task` is absent, so the suite is safe to run before the download step. A clean Python 3.11 virtual environment created from `requirements.txt` and `requirements-dev.txt` also installed successfully and ran the same 48-passed / 1-skipped suite. The full suite covers:
 
 - feature extraction and scale invariance;
 - the majority smoother, cooldown and controller mapping;
 - swipe, pinch and fist rules, including repeat suppression and neutral re-arming;
 - gallery navigation and pause/detail transitions;
 - camera open/read/release with a fake capture device;
-- benchmark summary arithmetic;
+- benchmark summary arithmetic and abort handling;
 - a blank-frame Hand Landmarker load test when the model is present;
 - a headless Pygame render smoke test.
 

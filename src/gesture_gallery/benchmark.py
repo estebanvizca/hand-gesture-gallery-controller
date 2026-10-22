@@ -124,13 +124,18 @@ def summarize(rows: list[dict], idle_minutes: float = 0.0) -> dict:
         per_gesture[gesture] = {
             "attempts": len(matching),
             "correct": correct,
+            "missed": len(matching) - correct,
             "accuracy": round(correct / len(matching), 3),
             "median_latency_ms": round(statistics.median(latencies), 1) if latencies else None,
         }
 
     idle_minutes = max(0.0, float(idle_minutes))
     false_activations = len(idle_rows)
-    fps_values = [float(row["fps"]) for row in rows if row.get("fps") not in ("", None)]
+    fps_values = [
+        float(row["fps"])
+        for row in rows
+        if row.get("fps") not in ("", None) and float(row["fps"]) > 0
+    ]
     return {
         "per_gesture": per_gesture,
         "false_activations": false_activations,
@@ -390,7 +395,7 @@ class BenchmarkSession:
                     "Stand about 50–80 cm from the camera with one hand visible. "
                     "The session prompts each gesture; return to a still open hand between attempts."
                 ),
-                progress=f"{self.attempts} attempts × {len(GESTURE_EVENTS)} gestures",
+                progress=f"{self.attempts} attempts × {len(GESTURE_EVENTS) if self.gesture == 'all' else 1} gestures",
                 result=None,
                 color=MUTED,
             )
@@ -456,7 +461,7 @@ class BenchmarkSession:
             while time.monotonic() < wait_until:
                 if not self._pump_events():
                     self._aborted = True
-                    return True
+                    return False
                 self._draw(
                     ui,
                     screen,
@@ -477,7 +482,7 @@ class BenchmarkSession:
             while time.monotonic() - neutral_start < 0.8:
                 if not self._pump_events():
                     self._aborted = True
-                    return True
+                    return False
                 self._draw(
                     ui,
                     screen,
@@ -551,6 +556,7 @@ class BenchmarkSession:
             writer.writerows(self.rows)
         summary = summarize(self.rows, self.idle_minutes)
         summary["output"] = str(self.output)
+        summary["aborted"] = self._aborted
         summary["settings"] = {
             "sensitivity": self.settings.sensitivity,
             "cooldown_ms": self.settings.cooldown_ms,
@@ -636,6 +642,8 @@ def main(argv: list[str] | None = None) -> int:
         common.append("--no-camera")
     if args.hide_landmarks:
         common.append("--hide-landmarks")
+    if args.fullscreen:
+        common.append("--fullscreen")
     try:
         settings = load_settings(common)
     except ValueError as error:

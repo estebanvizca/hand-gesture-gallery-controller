@@ -36,8 +36,9 @@ python benchmark.py --gesture pinch --attempts 20 --idle-minutes 0
 - **False activations per minute:** idle events divided by the idle duration.
 
 `reports/benchmark_<timestamp>.summary.json` contains per-gesture accuracy,
-median latency, false activations per minute and median FPS. The companion
-CSV has one row per attempt and one row per idle false activation.
+missed count, median latency, false activations per minute, median FPS and
+whether the session was aborted. The companion CSV has one row per attempt and
+one row per idle false activation.
 
 ## Success target
 

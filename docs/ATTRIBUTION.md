@@ -15,13 +15,14 @@ under **CC BY 4.0**. See `assets/gallery/LICENSE` and the generator at
 - **Author:** Eyefive45
 - **Source:** <https://commons.wikimedia.org/wiki/File:Open_Palm_of_the_Left_Hand,_Fingers.jpg>
 - **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-- **Changes:** resized, padded with a dark background, mirrored for the camera
-  preview, and used as a still test frame for MediaPipe landmark detection.
+- **Changes:** resized, cropped, and padded with a dark background for use as a
+  still test frame for MediaPipe landmark detection.
 
 `docs/screenshot.png` is a screenshot of this project's UI that incorporates
-the derivative test frame. It is distributed under **CC BY-SA 4.0** as a
-derivative of that image; the code and the gallery artworks remain under their
-own licenses described above.
+the derivative test frame. The screenshot script mirrors the frame for the
+camera preview and overlays real MediaPipe landmarks. The screenshot is
+distributed under **CC BY-SA 4.0** as a derivative of that image; the code and
+the gallery artworks remain under their own licenses described above.
 
 No face is shown in the screenshot. The normal application does not record or
 transmit video.
